@@ -33,7 +33,7 @@ def obtener_nave_mas_grande(naves):
     return max(naves, key=lambda x: x["longitud"])
 
 # Resultados
-def main():
+def ejercicio3():
     naves_ordenadas = ordenar_naves_por_nombre_y_longitud(naves)
     info_cometa_titan = obtener_info_naves(naves, ["Cometa Veloz", "Titán del Cosmos"])
     naves_mas_pasajeros = obtener_naves_con_mas_pasajeros(naves)
@@ -71,6 +71,3 @@ def main():
 
     print("\nNave más grande:")
     print(nave_mas_grande)
-
-if __name__ == "__main__":
-    main()
