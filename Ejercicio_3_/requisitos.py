@@ -1,3 +1,4 @@
+
 def ordenar_naves_por_nombre_y_longitud(naves):
     return sorted(naves, key=lambda x: (x["nombre"], -x["longitud"]))
 

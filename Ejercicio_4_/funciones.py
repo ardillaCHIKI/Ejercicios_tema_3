@@ -1,3 +1,9 @@
+from base_ej_4 import Polinomio
+
+def existe_termino(self, exponente):
+        # Determina si un término específico existe en el polinomio
+    return exponente in self.terminos
+
 def dividir(self, otro):
         # Divide dos polinomios (división sintética)
     dividendo = self.terminos.copy()
@@ -22,3 +28,17 @@ def dividir(self, otro):
                 del dividendo[exp_actual]
 
     return Polinomio(resultado), Polinomio(dividendo)
+
+def eliminar_termino(self, exponente):
+        # Elimina un término específico del polinomio
+    if exponente in self.terminos:
+        del self.terminos[exponente]
+
+def restar(self, otro):
+        # Resta dos polinomios
+    resultado = self.terminos.copy()
+    for exp, coef in otro.terminos.items():
+        resultado[exp] = resultado.get(exp, 0) - coef
+        if resultado[exp] == 0:
+            del resultado[exp]
+    return Polinomio(resultado)
