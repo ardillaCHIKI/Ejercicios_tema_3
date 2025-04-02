@@ -1,7 +1,5 @@
-from det_term_existe_polinomio import existe_termino
-from dividir_2_polinomios import dividir
-from elim_termino_polinomio import eliminar_termino
-from restar_2_polinomios import restar
+from funciones import existe_termino
+from funciones import dividir, eliminar_termino, restar
 class Polinomio:
     def __init__(self, terminos=None):
         # terminos es un diccionario donde la clave es el exponente y el valor es el coeficiente
@@ -13,7 +11,7 @@ class Polinomio:
                           for exp, coef in sorted(self.terminos.items(), reverse=True))
 
 # Ejemplo de uso
-if __name__ == "__main__":
+def ejercicio4():
     p1 = Polinomio({3: 4, 2: 3, 0: 5})  # 4x^3 + 3x^2 + 5
     p2 = Polinomio({1: 2, 0: 1})        # 2x + 1
 
@@ -21,7 +19,7 @@ if __name__ == "__main__":
     print("Polinomio 2:", p2)
 
     # Restar
-    resta = p1.restar(p2)
+    resta = restar(p1, p2)
     print("Resta:", resta)
 
     # Dividir
