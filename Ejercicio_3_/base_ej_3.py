@@ -1,3 +1,8 @@
+from requisitos import ordenar_naves_por_nombre_y_longitud,obtener_info_naves, obtener_naves_con_mas_pasajeros
+from requisitos import obtener_nave_con_mas_tripulacion, obtener_naves_por_prefijo, obtener_naves_con_minimo_pasajeros 
+from requisitos import obtener_nave_mas_pequena, obtener_nave_mas_grande
+
+
 # Lista de naves espaciales
 naves = [
     {"nombre": "Cometa Veloz", "longitud": 120, "tripulantes": 10, "pasajeros": 50},
@@ -8,29 +13,6 @@ naves = [
     {"nombre": "Nebulosa Azul", "longitud": 160, "tripulantes": 11, "pasajeros": 40},
 ]
 
-def ordenar_naves_por_nombre_y_longitud(naves):
-    return sorted(naves, key=lambda x: (x["nombre"], -x["longitud"]))
-
-def obtener_info_naves(naves, nombres):
-    return [nave for nave in naves if nave["nombre"] in nombres]
-
-def obtener_naves_con_mas_pasajeros(naves, cantidad=5):
-    return sorted(naves, key=lambda x: x["pasajeros"], reverse=True)[:cantidad]
-
-def obtener_nave_con_mas_tripulacion(naves):
-    return max(naves, key=lambda x: x["tripulantes"])
-
-def obtener_naves_por_prefijo(naves, prefijo):
-    return [nave for nave in naves if nave["nombre"].startswith(prefijo)]
-
-def obtener_naves_con_minimo_pasajeros(naves, minimo):
-    return [nave for nave in naves if nave["pasajeros"] >= minimo]
-
-def obtener_nave_mas_pequena(naves):
-    return min(naves, key=lambda x: x["longitud"])
-
-def obtener_nave_mas_grande(naves):
-    return max(naves, key=lambda x: x["longitud"])
 
 # Resultados
 def ejercicio3():
@@ -43,31 +25,45 @@ def ejercicio3():
     nave_mas_pequena = obtener_nave_mas_pequena(naves)
     nave_mas_grande = obtener_nave_mas_grande(naves)
 
-    print("Naves ordenadas por nombre ascendente y longitud descendente:")
+    print("|-------- Naves ordenadas por nombre ascendente y longitud descendente --------|")
     for nave in naves_ordenadas:
         print(nave)
 
-    print("\nInformación de 'Cometa Veloz' y 'Titán del Cosmos':")
+    print()
+
+    print("|-------- Información de 'Cometa Veloz' y 'Titán del Cosmos'--------|")
     for nave in info_cometa_titan:
         print(nave)
 
-    print("\nCinco naves con mayor cantidad de pasajeros:")
+    print()
+
+    print("|-------- Cinco naves con mayor cantidad de pasajeros --------|")
     for nave in naves_mas_pasajeros:
         print(nave)
 
-    print("\nNave que requiere mayor cantidad de tripulación:")
+    print()
+
+    print("|-------- Nave que requiere mayor cantidad de tripulación --------|")
     print(nave_mas_tripulacion)
 
-    print("\nNaves cuyo nombre comienza con 'GX':")
+    print()
+
+    print("|-------- Naves cuyo nombre comienza con 'GX' --------|")
     for nave in naves_gx:
         print(nave)
 
-    print("\nNaves que pueden llevar seis o más pasajeros:")
+    print()
+
+    print("|-------- Naves que pueden llevar seis o más pasajeros --------|")
     for nave in naves_seis_pasajeros:
         print(nave)
 
-    print("\nNave más pequeña:")
+    print()
+
+    print("|-------- Nave más pequeña --------|")
     print(nave_mas_pequena)
 
-    print("\nNave más grande:")
+    print()
+
+    print("|-------- Nave más grande --------|")
     print(nave_mas_grande)
