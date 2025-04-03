@@ -1,5 +1,5 @@
-from Metodos import determinante_recursivo
-from Metodos import determinante_iterativo
+from Metodos import determinante_recursivo, determinante_iterativo
+#from Metodos import determinante_iterativo
 
 # Ejemplo de uso
 def ejercicio2():
