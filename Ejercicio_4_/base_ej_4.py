@@ -1,15 +1,7 @@
+from funciones import restar
 from funciones import existe_termino
 from funciones import dividir, eliminar_termino, restar
-class Polinomio:
-    def __init__(self, terminos=None):
-        # terminos es un diccionario donde la clave es el exponente y el valor es el coeficiente
-        self.terminos = terminos if terminos else {}
-
-    def __str__(self):
-        # Representación legible del polinomio
-        return " + ".join(f"{coef}x^{exp}" if exp != 0 else f"{coef}"
-                          for exp, coef in sorted(self.terminos.items(), reverse=True))
-
+from funciones import Polinomio
 # Ejemplo de uso
 def ejercicio4():
     p1 = Polinomio({3: 4, 2: 3, 0: 5})  # 4x^3 + 3x^2 + 5
