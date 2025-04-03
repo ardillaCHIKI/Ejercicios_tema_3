@@ -1,10 +1,4 @@
 def restar(terminos1, terminos2):
-    """
-    Resta dos polinomios representados como diccionarios.
-    :param terminos1: Diccionario del primer polinomio {exponente: coeficiente}.
-    :param terminos2: Diccionario del segundo polinomio {exponente: coeficiente}.
-    :return: Diccionario con el resultado de la resta.
-    """
     resultado = terminos1.copy()
     for exp, coef in terminos2.items():
         resultado[exp] = resultado.get(exp, 0) - coef
@@ -13,12 +7,6 @@ def restar(terminos1, terminos2):
     return resultado
 
 def dividir(terminos1, terminos2):
-    """
-    Divide dos polinomios representados como diccionarios.
-    :param terminos1: Diccionario del dividendo {exponente: coeficiente}.
-    :param terminos2: Diccionario del divisor {exponente: coeficiente}.
-    :return: Dos diccionarios, el cociente y el residuo.
-    """
     dividendo = terminos1.copy()
     divisor = terminos2
     cociente = {}
@@ -43,19 +31,8 @@ def dividir(terminos1, terminos2):
     return cociente, dividendo
 
 def eliminar_termino(terminos, exponente):
-    """
-    Elimina un término específico de un polinomio.
-    :param terminos: Diccionario del polinomio {exponente: coeficiente}.
-    :param exponente: Exponente del término a eliminar.
-    """
     if exponente in terminos:
         del terminos[exponente]
 
 def existe_termino(terminos, exponente):
-    """
-    Verifica si un término específico existe en un polinomio.
-    :param terminos: Diccionario del polinomio {exponente: coeficiente}.
-    :param exponente: Exponente del término a verificar.
-    :return: True si el término existe, False en caso contrario.
-    """
     return exponente in terminos
