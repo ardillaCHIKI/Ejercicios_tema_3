@@ -1,6 +1,6 @@
-from requisitos import ordenar_naves_por_nombre_y_longitud,obtener_info_naves, obtener_naves_con_mas_pasajeros
-from requisitos import obtener_nave_con_mas_tripulacion, obtener_naves_por_prefijo, obtener_naves_con_minimo_pasajeros 
-from requisitos import obtener_nave_mas_pequena, obtener_nave_mas_grande
+from .requisitos import ordenar_naves_por_nombre_y_longitud,obtener_info_naves, obtener_naves_con_mas_pasajeros
+from .requisitos import obtener_nave_con_mas_tripulacion, obtener_naves_por_prefijo, obtener_naves_con_minimo_pasajeros 
+from .requisitos import obtener_nave_mas_pequena, obtener_nave_mas_grande
 
 
 # Lista de naves espaciales

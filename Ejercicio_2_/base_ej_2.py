@@ -1,4 +1,5 @@
-# base_ej_2.py
+from Metodo_iterativo import determinante_iterativo
+from Metodo_recursivo import determinante_recursivo
 
 # Ejemplo de uso
 if __name__ == "__main__":
