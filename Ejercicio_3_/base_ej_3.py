@@ -1,21 +1,25 @@
-from requisitos import ordenar_naves_por_nombre_y_longitud,obtener_info_naves, obtener_naves_con_mas_pasajeros
-from requisitos import obtener_nave_con_mas_tripulacion, obtener_naves_por_prefijo, obtener_naves_con_minimo_pasajeros 
-from requisitos import obtener_nave_mas_pequena, obtener_nave_mas_grande
+from .requisitos_ej3_ import ordenar_naves_por_nombre_y_longitud
+from .requisitos_ej3_ import obtener_info_naves
+from .requisitos_ej3_ import obtener_naves_con_mas_pasajeros
+from .requisitos_ej3_ import obtener_nave_con_mas_tripulacion
+from .requisitos_ej3_ import obtener_naves_por_prefijo
+from .requisitos_ej3_ import obtener_naves_con_minimo_pasajeros
+from .requisitos_ej3_ import obtener_nave_mas_pequena
+from .requisitos_ej3_ import obtener_nave_mas_grande
 
-
-# Lista de naves espaciales
 naves = [
-    {"nombre": "Cometa Veloz", "longitud": 120, "tripulantes": 10, "pasajeros": 50},
-    {"nombre": "Titán del Cosmos", "longitud": 200, "tripulantes": 15, "pasajeros": 100},
-    {"nombre": "GX-1 Explorer", "longitud": 150, "tripulantes": 8, "pasajeros": 20},
-    {"nombre": "Estrella Fugaz", "longitud": 180, "tripulantes": 12, "pasajeros": 80},
-    {"nombre": "GX-2 Voyager", "longitud": 140, "tripulantes": 9, "pasajeros": 60},
-    {"nombre": "Nebulosa Azul", "longitud": 160, "tripulantes": 11, "pasajeros": 40},
+{"nombre": "Cometa Veloz", "longitud": 120, "tripulantes": 10, "pasajeros": 50},
+{"nombre": "Titán del Cosmos", "longitud": 200, "tripulantes": 15, "pasajeros": 100},
+{"nombre": "GX-1 Explorer", "longitud": 150, "tripulantes": 8, "pasajeros": 20},
+{"nombre": "Estrella Fugaz", "longitud": 180, "tripulantes": 12, "pasajeros": 80},
+{"nombre": "GX-2 Voyager", "longitud": 140, "tripulantes": 9, "pasajeros": 60},
+{"nombre": "Nebulosa Azul", "longitud": 160, "tripulantes": 11, "pasajeros": 40},
 ]
 
 
 # Resultados
 def ejercicio3():
+
     naves_ordenadas = ordenar_naves_por_nombre_y_longitud(naves)
     info_cometa_titan = obtener_info_naves(naves, ["Cometa Veloz", "Titán del Cosmos"])
     naves_mas_pasajeros = obtener_naves_con_mas_pasajeros(naves)
