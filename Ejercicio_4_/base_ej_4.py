@@ -1,9 +1,3 @@
-import sys
-import os
-
-# Agregar el directorio raíz al PYTHONPATH
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 from funciones import restar, dividir, eliminar_termino, existe_termino
 
 class Polinomio:
@@ -16,23 +10,23 @@ class Polinomio:
         return " + ".join(f"{coef}x^{exp}" if exp != 0 else f"{coef}"
                           for exp, coef in sorted(self.terminos.items(), reverse=True))
 
-def restar(self, otro):
+    def restar(self, otro):
         # Usa la función restar para restar dos polinomios
-    resultado = restar(self.terminos, otro.terminos)
-    return Polinomio(resultado)
+        resultado = restar(self.terminos, otro.terminos)
+        return Polinomio(resultado)
 
-def dividir(self, otro):
+    def dividir(self, otro):
         # Usa la función dividir para dividir dos polinomios
-    cociente, residuo = dividir(self.terminos, otro.terminos)
-    return Polinomio(cociente), Polinomio(residuo)
+        cociente, residuo = dividir(self.terminos, otro.terminos)
+        return Polinomio(cociente), Polinomio(residuo)
 
-def eliminar_termino(self, exponente):
+    def eliminar_termino(self, exponente):
         # Usa la función eliminar_termino para eliminar un término
-    eliminar_termino(self.terminos, exponente)
+        eliminar_termino(self.terminos, exponente)
 
-def existe_termino(self, exponente):
+    def existe_termino(self, exponente):
         # Usa la función existe_termino para verificar si un término existe
-    return existe_termino(self.terminos, exponente)
+        return existe_termino(self.terminos, exponente)
 
 # Ejemplo de uso
 def ejercicio4():
