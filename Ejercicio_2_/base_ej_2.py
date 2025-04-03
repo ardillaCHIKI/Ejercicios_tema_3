@@ -1,13 +1,13 @@
-from Metodo_iterativo import determinante_iterativo
-from Metodo_recursivo import determinante_recursivo
+from Metodos import determinante_recursivo
+from Metodos import determinante_iterativo
 
 # Ejemplo de uso
-if __name__ == "__main__":
+def ejercicio2():
     matriz = [
         [2, 4, 3],
         [1, 5, 7],
         [6, 8, 9]
     ]
-    
     print("Determinante (recursivo):", determinante_recursivo(matriz))
+    print()
     print("Determinante (iterativo):", determinante_iterativo(matriz))
