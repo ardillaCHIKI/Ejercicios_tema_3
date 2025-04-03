@@ -1,7 +1,7 @@
-from funciones import restar
-from funciones import existe_termino
-from funciones import dividir, eliminar_termino, restar
-from funciones import Polinomio
+from .funciones import restar
+from .funciones import existe_termino
+from .funciones import dividir, eliminar_termino, restar
+from .funciones import Polinomio
 # Ejemplo de uso
 def ejercicio4():
     p1 = Polinomio({3: 4, 2: 3, 0: 5})  # 4x^3 + 3x^2 + 5
