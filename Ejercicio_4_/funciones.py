@@ -1,22 +1,27 @@
-class Polinomio:
-    def __init__(self, terminos=None):
-        # terminos es un diccionario donde la clave es el exponente y el valor es el coeficiente
-        self.terminos = terminos if terminos else {}
+def restar(terminos1, terminos2):
+    """
+    Resta dos polinomios representados como diccionarios.
+    :param terminos1: Diccionario del primer polinomio {exponente: coeficiente}.
+    :param terminos2: Diccionario del segundo polinomio {exponente: coeficiente}.
+    :return: Diccionario con el resultado de la resta.
+    """
+    resultado = terminos1.copy()
+    for exp, coef in terminos2.items():
+        resultado[exp] = resultado.get(exp, 0) - coef
+        if resultado[exp] == 0:
+            del resultado[exp]  # Elimina términos con coeficiente 0
+    return resultado
 
-    def __str__(self):
-        # Representación legible del polinomio
-        return " + ".join(f"{coef}x^{exp}" if exp != 0 else f"{coef}"
-                          for exp, coef in sorted(self.terminos.items(), reverse=True))
-
-def existe_termino(self, exponente):
-        # Determina si un término específico existe en el polinomio
-    return exponente in self.terminos
-
-def dividir(self, otro):
-        # Divide dos polinomios (división sintética)
-    dividendo = self.terminos.copy()
-    divisor = otro.terminos
-    resultado = {}
+def dividir(terminos1, terminos2):
+    """
+    Divide dos polinomios representados como diccionarios.
+    :param terminos1: Diccionario del dividendo {exponente: coeficiente}.
+    :param terminos2: Diccionario del divisor {exponente: coeficiente}.
+    :return: Dos diccionarios, el cociente y el residuo.
+    """
+    dividendo = terminos1.copy()
+    divisor = terminos2
+    cociente = {}
 
     while dividendo and max(dividendo) >= max(divisor):
         exp_dividendo = max(dividendo)
@@ -24,29 +29,33 @@ def dividir(self, otro):
         coef_dividendo = dividendo[exp_dividendo]
         coef_divisor = divisor[exp_divisor]
 
-        exp_resultado = exp_dividendo - exp_divisor
-        coef_resultado = coef_dividendo / coef_divisor
-        resultado[exp_resultado] = coef_resultado
+        exp_cociente = exp_dividendo - exp_divisor
+        coef_cociente = coef_dividendo / coef_divisor
+        cociente[exp_cociente] = coef_cociente
 
-            # Resta el término obtenido del dividendo
+        # Resta el término obtenido del dividendo
         for exp, coef in divisor.items():
-            exp_actual = exp + exp_resultado
-            dividendo[exp_actual] = dividendo.get(exp_actual, 0) - coef * coef_resultado
+            exp_actual = exp + exp_cociente
+            dividendo[exp_actual] = dividendo.get(exp_actual, 0) - coef * coef_cociente
             if dividendo[exp_actual] == 0:
                 del dividendo[exp_actual]
 
-    return Polinomio(resultado), Polinomio(dividendo)
+    return cociente, dividendo
 
-def eliminar_termino(self, exponente):
-        # Elimina un término específico del polinomio
-    if exponente in self.terminos:
-        del self.terminos[exponente]
+def eliminar_termino(terminos, exponente):
+    """
+    Elimina un término específico de un polinomio.
+    :param terminos: Diccionario del polinomio {exponente: coeficiente}.
+    :param exponente: Exponente del término a eliminar.
+    """
+    if exponente in terminos:
+        del terminos[exponente]
 
-def restar(self, otro):
-        # Resta dos polinomios
-    resultado = self.terminos.copy()
-    for exp, coef in otro.terminos.items():
-        resultado[exp] = resultado.get(exp, 0) - coef
-        if resultado[exp] == 0:
-            del resultado[exp]
-    return Polinomio(resultado)
+def existe_termino(terminos, exponente):
+    """
+    Verifica si un término específico existe en un polinomio.
+    :param terminos: Diccionario del polinomio {exponente: coeficiente}.
+    :param exponente: Exponente del término a verificar.
+    :return: True si el término existe, False en caso contrario.
+    """
+    return exponente in terminos

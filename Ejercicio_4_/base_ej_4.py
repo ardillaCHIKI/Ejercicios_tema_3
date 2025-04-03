@@ -1,15 +1,33 @@
-import sys
-import os
+from funciones import restar, dividir, eliminar_termino, existe_termino
 
-# Agregar el directorio raíz al PYTHONPATH
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+class Polinomio:
+    def __init__(self, terminos=None):
+        # terminos es un diccionario donde la clave es el exponente y el valor es el coeficiente
+        self.terminos = terminos if terminos else {}
 
-from funciones import restar
-from funciones import existe_termino
-from funciones import dividir
-from funciones import eliminar_termino
-from funciones import restar
-from funciones import Polinomio
+    def __str__(self):
+        # Representación legible del polinomio
+        return " + ".join(f"{coef}x^{exp}" if exp != 0 else f"{coef}"
+                          for exp, coef in sorted(self.terminos.items(), reverse=True))
+
+    def restar(self, otro):
+        # Usa la función restar para restar dos polinomios
+        resultado = restar(self.terminos, otro.terminos)
+        return Polinomio(resultado)
+
+    def dividir(self, otro):
+        # Usa la función dividir para dividir dos polinomios
+        cociente, residuo = dividir(self.terminos, otro.terminos)
+        return Polinomio(cociente), Polinomio(residuo)
+
+    def eliminar_termino(self, exponente):
+        # Usa la función eliminar_termino para eliminar un término
+        eliminar_termino(self.terminos, exponente)
+
+    def existe_termino(self, exponente):
+        # Usa la función existe_termino para verificar si un término existe
+        return existe_termino(self.terminos, exponente)
+
 # Ejemplo de uso
 def ejercicio4():
     p1 = Polinomio({3: 4, 2: 3, 0: 5})  # 4x^3 + 3x^2 + 5
@@ -19,7 +37,7 @@ def ejercicio4():
     print("Polinomio 2:", p2)
 
     # Restar
-    resta = restar(p1, p2)
+    resta = p1.restar(p2)
     print("Resta:", resta)
 
     # Dividir
