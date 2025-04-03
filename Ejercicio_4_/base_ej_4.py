@@ -1,7 +1,15 @@
-from .funciones import restar
-from .funciones import existe_termino
-from .funciones import dividir, eliminar_termino, restar
-from .funciones import Polinomio
+import sys
+import os
+
+# Agregar el directorio raíz al PYTHONPATH
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from funciones import restar
+from funciones import existe_termino
+from funciones import dividir
+from funciones import eliminar_termino
+from funciones import restar
+from funciones import Polinomio
 # Ejemplo de uso
 def ejercicio4():
     p1 = Polinomio({3: 4, 2: 3, 0: 5})  # 4x^3 + 3x^2 + 5
